@@ -1,7 +1,7 @@
 const express = require('express');
-const router  = require('./routes/router');
+const router  = require('./router');
 const cors    = require('cors');
-const enoent  = require('./middlewares/enoent');
+const enoent  = require('./enoent');
 
 
 const port     = process.env.PORT || 8000;
