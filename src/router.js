@@ -15,8 +15,11 @@ if (!storage) {
   process.exit(1);
 }
 
+
+const slash = process.platform === 'win32' ? '\\' : '/';
+
 const processpath = (storagepath) => {
-  const relativepath = storagepath ? storagepath.replace(/_/g, '/') : '/';
+  const relativepath = storagepath ? storagepath.replace(/_/g, slash) : slash;
   return { relativepath, absolutepath: path.join(storage, relativepath) };
 };
 
