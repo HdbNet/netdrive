@@ -1,7 +1,7 @@
 #!usr/bin/env bash
 
-action  = $1
-action2 = $2
+action=$1
+action2=$2
 
 
 usage() {
@@ -28,14 +28,14 @@ docker_setup() {
 	docker-compose run express npm i
 }
 
-if [ $action == "run" ]; then
-	if [ $action2 == "local" ]; then
+if [ "$action" = "run" ]; then
+	if [ "$action2" = "local" ]; then
 		local_setup && node src/index.js
-	elif [ $action2 == "docker" ]; then
+	elif [ "$action2" = "docker" ]; then
 		docker_setup
 	fi
-elif [ $action == "configure" ]; then
+elif [ "$action" = "configure" ]; then
 	vim src/.env
 else
-
+	usage
 fi
