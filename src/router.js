@@ -8,6 +8,13 @@ router.use(fileupload());
 
 const storage = process.env.NETDRIVE_STORAGE;
 
+if (!storage) {
+  console.error(
+    'NETDRIVE_STORAGE environment variable not defined\n'
+  );
+  process.exit(1);
+}
+
 const processpath = (storagepath) => {
   const relativepath = storagepath ? storagepath.replace(/_/g, '/') : '/';
   return { relativepath, absolutepath: path.join(storage, relativepath) };
