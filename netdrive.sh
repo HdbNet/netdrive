@@ -34,6 +34,8 @@ if [ "$action" = "run" ]; then
 	elif [ "$action2" = "docker" ]; then
 		docker_setup
 	fi
+elif [ "$action" = "deps" ]; then
+	local_setup
 elif [ "$action" = "configure" ]; then
 	vim src/.env
 else
