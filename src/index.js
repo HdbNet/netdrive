@@ -2,9 +2,10 @@ const express = require('express');
 const router  = require('./router');
 const cors    = require('cors');
 const enoent  = require('./enoent');
+const config  = require('./config');
 
 
-const port     = process.env.PORT || 8000;
+const port     = config.port || process.env.PORT || 8000;
 const netdrive = express();
 
 
